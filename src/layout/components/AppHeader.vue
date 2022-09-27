@@ -19,7 +19,7 @@
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <span v-else>登录</span>
+                <span v-else @click="userLogin">登录</span>
             </div>
         </template>
     </el-page-header>
@@ -30,6 +30,7 @@
 import { defineComponent, computed } from 'vue';
 import { useStore } from '@/stores/store'
 import { useRoute } from 'vue-router'
+import { login} from '@/utils/apis'
 export default defineComponent({
     name: 'AppHeader',
     setup() {
@@ -48,12 +49,18 @@ export default defineComponent({
                 return ''
             }
         })
+        const userLogin = ()=>{
+            login().then(res=>{
+                console.log(res)
+            })
+        }
         return {
             title,
             showIcon,
             store,
             outLogin,
-            changeCollapse
+            changeCollapse,
+            userLogin
         }
     }
 });

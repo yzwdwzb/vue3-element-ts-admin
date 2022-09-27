@@ -2,3 +2,4 @@
 **/*.vue
 **/*.json
 node_modules/
+server/

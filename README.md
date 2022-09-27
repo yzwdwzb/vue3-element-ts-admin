@@ -7,7 +7,12 @@
 
 ```shell
 npm install
+//仅启动前台
 npm run dev
+
+//启动前台和 本地node服务器
+npm install -g concurrently
+npm run serve
 ```
 
 ### progress
@@ -21,7 +26,7 @@ npm run dev
 3. pinia-plugin-persist
 4. element-plus
 
-### git
+### git commit
 - feat：新功能（feature）。
 - fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。
 - fix：产生diff并自动修复此问题。适合于一次提交直接修复问题
