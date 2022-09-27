@@ -8,18 +8,18 @@
                 <el-dropdown v-if="store.isLogin">
                     <span class="el-dropdown-link">
                         <el-avatar :size="32" class="mr-3" fit="cover"
-                            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+                            :src="store.userInfo.avatar" />
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item disabled>admin</el-dropdown-item>
+                            <el-dropdown-item disabled>{{store.userInfo.nickName}}</el-dropdown-item>
                             <el-dropdown-item divided>用户中心</el-dropdown-item>
                             <el-dropdown-item>店铺后台</el-dropdown-item>
                             <el-dropdown-item divided @click="outLogin">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <span v-else @click="userLogin">登录</span>
+                <span v-else @click="toLogin">登录</span>
             </div>
         </template>
     </el-page-header>
@@ -30,7 +30,6 @@
 import { defineComponent, computed } from 'vue';
 import { useStore } from '@/stores/store'
 import { useRoute } from 'vue-router'
-import { login} from '@/utils/apis'
 export default defineComponent({
     name: 'AppHeader',
     setup() {
@@ -49,10 +48,8 @@ export default defineComponent({
                 return ''
             }
         })
-        const userLogin = ()=>{
-            login().then(res=>{
-                console.log(res)
-            })
+        const toLogin = ()=>{
+            store.routerTo('/login')
         }
         return {
             title,
@@ -60,7 +57,7 @@ export default defineComponent({
             store,
             outLogin,
             changeCollapse,
-            userLogin
+            toLogin
         }
     }
 });
