@@ -1,10 +1,5 @@
 <template>
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-        <el-radio-button :label="false">expand</el-radio-button>
-        <el-radio-button :label="true">collapse</el-radio-button>
-    </el-radio-group>
-    <el-menu :default-active="pathActive" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
-        @close="handleClose">
+    <el-menu :default-active="store.pathActive" class="el-menu-vertical-demo" :collapse="store.isCollapse">
         <template v-for="(item, index) of routes" :key="index">
             <el-sub-menu :index="item.path" v-if="item.meta?.hasSub">
                 <template #title>
@@ -24,40 +19,25 @@
                 <span>{{item.meta?.title}}</span>
             </el-menu-item>
         </template>
-
     </el-menu>
 </template>
   
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { routes, router} from '@/router';
+import { useStore } from '@/stores/store'
 export default defineComponent({
     name: 'AppHeader',
     setup() {
-        const isCollapse = ref(true)
-        const pathActive = ref('/home')
-        console.log(routes)
-
-        const handleOpen = (key: string, keyPath: string[]) => {
-            // console.log('handleOpen', key, keyPath)
-        }
-        const handleClose = (key: string, keyPath: string[]) => {
-            // console.log('handleClose', key, keyPath)
-        }
+        const store = useStore()
         const handleClick = (path: string) => {
-            pathActive.value = path
-            console.log(path)
-            router.push({
-                path
-            })
+            store.pathActive = path
+            router.push({path})
         }
         return {
-            isCollapse,
-            handleOpen,
-            handleClose,
+            store,
             routes,
             handleClick,
-            pathActive
         }
     }
 });

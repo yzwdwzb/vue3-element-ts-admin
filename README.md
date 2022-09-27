@@ -1,52 +1,37 @@
-# vue3
+### target
+1. 学习Vue3新特性
+2. 熟悉Composition API
+3. 熟悉TS
 
-This template should help get you started developing with Vue 3 in Vite.
+### start
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```shell
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### progress
+1. layout布局
+2. 路由
+3. pinia 数据持久化
 
-```sh
-npm run build
-```
+### plugins
+1. vue-router
+2. pinia
+3. pinia-plugin-persist
+4. element-plus
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### git
+feat：新功能（feature）。
+fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。
+fix：产生diff并自动修复此问题。适合于一次提交直接修复问题
+to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix
+docs：文档（documentation）。
+style：格式（不影响代码运行的变动）。
+refactor：重构（即不是新增功能，也不是修改bug的代码变动）。
+perf：优化相关，比如提升性能、体验。
+test：增加测试。
+chore：构建过程或辅助工具的变动。
+revert：回滚到上一个版本。
+merge：代码合并。
+sync：同步主线或分支的Bug。

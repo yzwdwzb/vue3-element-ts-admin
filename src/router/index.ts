@@ -43,6 +43,34 @@ export const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "about" */ '@/views/set/SetAccount.vue'),
     }
   ]
+  },{
+    path: '/error',
+    name: 'error',
+    meta: {
+      title:'错误',
+      icon:'Warning',
+      hasSub:true
+    },
+    component: LayoutView,
+    children: [
+      {
+        path:'/error/404',
+        name:'404',
+        meta: {
+          title:'404',
+          icon:'DocumentDelete'
+        },
+        component: () => import(/* webpackChunkName: "about" */ '@/views/error/404.vue'),
+    },{
+      path:'/error/500',
+      name:'500',
+      meta: {
+        title:'500',
+        icon:'FolderDelete'
+      },
+      component: () => import(/* webpackChunkName: "about" */ '@/views/error/500.vue'),
+  },
+  ]
   },
 ];
 

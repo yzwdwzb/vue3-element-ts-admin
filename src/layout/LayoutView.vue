@@ -31,4 +31,10 @@ export default defineComponent({
 
 });
 </script>
+
+<style scoped>
+    .sliber_box{
+        width: auto;
+    }
+</style>
   
