@@ -1,32 +1,35 @@
-### target
+### Target
 1. 学习Vue3新特性
 2. 熟悉Composition API
 3. 熟悉TS
 
-### start
-
+### Getting started
 ```shell
 npm install
 //仅启动前台
 npm run dev
 
-//启动前台和 本地node服务器
-npm install -g concurrently
+//启动前台和 本地服务器
+npm install -g concurrently json-server
 npm run serve
 ```
 
-### progress
+### Progress
 1. layout布局
 2. 路由
 3. pinia 数据持久化
 
-### plugins
-1. vue-router
-2. pinia
-3. pinia-plugin-persist
-4. element-plus
+### Used
+1. [vue3](https://cn.vuejs.org/)
+2. [vue-router](https://router.vuejs.org/zh/)
+3. [typescript](https://www.typescriptlang.org/zh/docs/)
+4. [pinia](https://pinia.web3doc.top/core-concepts/getters.html)
+5. [pinia-plugin-persist](https://seb-l.github.io/pinia-plugin-persist/)
+6. [element-plus](https://element-plus.gitee.io/zh-CN/#/zh-CN)
+7. [json-server](https://github.com/typicode/json-server)
+8. [axios](https://www.axios-http.cn/)
 
-### git commit
+### Git commit
 - feat：新功能（feature）。
 - fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。
 - fix：产生diff并自动修复此问题。适合于一次提交直接修复问题
@@ -40,3 +43,62 @@ npm run serve
 - revert：回滚到上一个版本。
 - merge：代码合并。
 - sync：同步主线或分支的Bug。
+
+### Steps
+
+#### pinia-plugin-persist
+
+**Install**
+```shell
+npm install pinia-plugin-persist
+```
+**Config**
+`main.ts`
+```typescript
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import piniaPersist from 'pinia-plugin-persist'
+
+const pinia = createPinia()
+pinia.use(piniaPersist)
+
+createApp({})
+  .use(pinia)
+  .mount('#app')
+```
+`tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "pinia-plugin-persist"
+    ]
+  },
+}
+```
+**Usage**
+`stores/store.ts`
+```typescript
+import { defineStore } from "pinia";
+
+export const useStore = defineStore("store", {
+  state() {
+    return {
+      userInfo: {
+        nickName: "",
+        avatar:''
+      },
+    };
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        paths: ["userInfo"],    //需要持久化的key
+        storage: localStorage,
+      },
+    ],
+  },
+});
+
+```
