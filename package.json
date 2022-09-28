@@ -9,16 +9,13 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "node-serve": "node ./server/app.js",
+    "node-serve": "json-server --watch ./data/db.json --port 3004",
     "serve": "concurrently \"npm run node-serve\" \"npm run dev\""
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
     "axios": "^0.27.2",
     "element-plus": "^2.2.17",
-    "express": "^4.18.1",
-    "fs": "^0.0.1-security",
-    "multer": "^1.4.5-lts.1",
     "pinia": "^2.0.21",
     "pinia-plugin-persist": "^1.0.0",
     "vue": "^3.2.38",

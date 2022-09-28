@@ -13,8 +13,8 @@
   
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import { login } from '@/utils/apis'
 import { useStore } from '@/stores/store'
+import axios  from '@/utils/axios';
 export default defineComponent({
     name: 'LoginView',
     setup() {
@@ -24,9 +24,12 @@ export default defineComponent({
             passWord: ''
         })
         const userLogin = () => {
-            login(verify).then(res => {
-                store.userInfo = res.data
-                store.routerTo('/')
+            axios.get('/login',{
+                params:{
+                    userName:verify.userName
+                }
+            }).then(res=>{
+                console.log(res)
             })
         }
         return {
