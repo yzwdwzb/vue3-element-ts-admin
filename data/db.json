@@ -15,6 +15,50 @@
         "rootName":"管理员",
         "token":"xxcasdawafafafaf",
         "avatar":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-e4ac489d-ec74-480c-ae53-ce2a4c377a97/c275e21c-9646-46cd-b0a5-17143f8be5b1.png"
-    }]
-
+    }],
+    "showcase":{
+        "topBoxList":[{
+            "id":"1",
+            "describe": "Coffee",
+            "number": "68",
+            "unit": "cup",
+            "color":"#8e354a",
+            "icon": "Coffee"
+          },{
+            "id":"2",
+            "describe": "Milk Tea",
+            "number": "88",
+            "unit": "cup",
+            "color":"#2ea9df",
+            "icon": "MilkTea"
+          },{
+            "id":"3",
+            "describe": "Ice Tea",
+            "number": "66",
+            "unit": "cup",
+            "color":"#ffba84",
+            "icon": "IceTea"
+          },{
+            "id":"4",
+            "describe": "Sugar",
+            "number": "68",
+            "color":"#ddd23b",
+            "unit": "piece",
+            "icon": "Sugar"
+          },{
+            "id":"5",
+            "describe": "Chicken",
+            "number": "99",
+            "color":"#af5f3c",
+            "unit": "piece",
+            "icon": "Chicken"
+          },{
+            "id":"6",
+            "describe": "Fries",
+            "number": "46",
+            "color":"#ffb11b",
+            "unit": "portion",
+            "icon": "Fries"
+          }]
+    }
 }
