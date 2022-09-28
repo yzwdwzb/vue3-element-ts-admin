@@ -5,7 +5,7 @@
             <app-header />
         </el-header>
         <!-- 头部下面的内容 -->
-        <el-container>
+        <el-container class="contanier_box">
             <!-- 侧边栏 -->
             <el-aside class="sliber_box">
                 <app-sliber />
