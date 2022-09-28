@@ -14,6 +14,7 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import { useStore } from '@/stores/store'
+import { ElMessage } from 'element-plus'
 import axios  from '@/utils/axios';
 export default defineComponent({
     name: 'LoginView',
@@ -23,14 +24,16 @@ export default defineComponent({
             userName: '',
             passWord: ''
         })
-        const userLogin = () => {
-            axios.get('/login',{
-                params:{
-                    userName:verify.userName
-                }
-            }).then(res=>{
-                console.log(res)
-            })
+        async function userLogin() {
+            try {
+                const res = await axios.get(`/login?userName=${verify.userName}`);
+                if(JSON.stringify(res) === '[]') throw '用户名不存在'
+                store.userInfo = res.data[0]
+                store.routerTo('/')
+            } catch (error) {
+                ElMessage.error('用户名不存在')
+                console.error(error)
+            }
         }
         return {
             verify,

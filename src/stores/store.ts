@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-
 import {  router} from '@/router';
+
 
 export const useStore = defineStore("store", {
   state() {
