@@ -11,7 +11,7 @@ axios.defaults.headers.post['Content-Type'] = 'Content-Type: application/json';
 axios.interceptors.response.use(    
     response => {   
         if (response.status === 200) {            
-            return Promise.resolve(response.data);        
+            return Promise.resolve(response);        
         } else {       
             return Promise.reject(response);        
         }    
