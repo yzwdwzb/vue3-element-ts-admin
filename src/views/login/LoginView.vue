@@ -21,13 +21,13 @@ export default defineComponent({
     setup() {
         const store = useStore()
         const verify = reactive({
-            userName: '',
-            passWord: ''
+            userName: 'admin',
+            passWord: '123456'
         })
         async function userLogin() {
             try {
                 const res = await axios.get(`/login?userName=${verify.userName}`);
-                if(JSON.stringify(res) === '[]') throw '用户名不存在'
+                if(JSON.stringify(res.data) === '[]') throw '用户名不存在'
                 store.userInfo = res.data[0]
                 store.routerTo('/')
             } catch (error) {
